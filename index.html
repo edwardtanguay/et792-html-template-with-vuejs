@@ -188,17 +188,28 @@
 				data() {
 					return {
 						quote: "",
+						quotes: [
+							'quote 1',
+							'quote 2',
+							'quote 3',
+							'quote 4',
+							'quote 5',
+						]
 					};
 				},
 				methods: {
 					initialize() {
-						this.quote = "quote #" + this.getRandomNumberBetween(1,10)
+						this.quote = this.getRandomeQuote();
 					},
 					getRandomNumberBetween(min, max) {
 						return (
 							Math.floor(Math.random() * (max - min + 1)) + min
 						);
 					},
+					getRandomeQuote() {
+						const randomIndex = this.getRandomNumberBetween(0,this.quotes.length - 1);
+						return this.quotes[randomIndex];
+					}
 				},
 			})
 				.mount("#vueapp")
