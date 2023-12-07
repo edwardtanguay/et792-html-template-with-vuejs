@@ -45,12 +45,9 @@
 						/></a>
 						<div class="content">
 							<h3>{{employeeTitle}}</h3>
-							<p>
-								Vitae natoque dictum etiam semper magnis enim
-								feugiat amet curabitur tempor orci penatibus.
-								Tellus erat mauris ipsum fermentum etiam vivamus
-								eget. Nunc nibh morbi quis fusce lacus.
-							</p>
+							<div v-for="employee in employees">
+								<p>{{employee.firstName}}</p>
+							</div>
 						</div>
 					</section>
 					<section class="feature right">
