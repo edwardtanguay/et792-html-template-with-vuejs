@@ -45,8 +45,18 @@
 						/></a>
 						<div class="content">
 							<h3>{{employeeTitle}}</h3>
-							<div v-for="employee in employees">
-								<p>{{employee.firstName}}</p>
+							<div
+								class="flex mb-4 items-center bg-gray-600 text-gray-300 rounded"
+								v-for="employee in employees"
+							>
+								<img
+									class="w-20 rounded-l"
+									:src="`https://edwardtanguay.vercel.app/share/images/employees/employee_${employee.employeeID}.jpg`"
+								/>
+								<div class="w-full">
+									<p class="font-bold text-yellow-400">{{employee.firstName}} {{employee.lastName}}</p>
+									<p class="italic opacity-80">{{employee.title}}</p>
+								</div>
 							</div>
 						</div>
 					</section>
