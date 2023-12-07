@@ -195,13 +195,18 @@
 							"You are never too old to set another goal or to dream a new dream. - C.S. Lewis",
 							"The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
 						],
-						employeeTitle: ""
+						employeeTitle: "",
+						employees: []
 					};
 				},
 				methods: {
 					initialize() {
 						this.quote = this.getRandomQuote();
-						this.employeeTitle = "Our nnn Employees:"
+						this.loadEmployees();
+						this.employeeTitle = `Our ${this.employees.length} Employees:`
+					},
+					loadEmployees() {
+						this.employees = ['one', 'two', 'three'];
 					},
 					getRandomNumberBetween(min, max) {
 						return (
