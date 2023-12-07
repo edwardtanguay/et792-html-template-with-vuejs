@@ -196,17 +196,22 @@
 							"The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
 						],
 						employeeTitle: "",
-						employees: []
+						employees: [],
 					};
 				},
 				methods: {
 					initialize() {
 						this.quote = this.getRandomQuote();
 						this.loadEmployees();
-						this.employeeTitle = `Our ${this.employees.length} Employees:`
 					},
 					loadEmployees() {
-						this.employees = ['one', 'two', 'three'];
+						(async () => {
+							const response = await fetch(
+								"https://edwardtanguay.vercel.app/share/employees.json"
+							);
+							this.employees = await response.json();
+							this.employeeTitle = `Our ${this.employees.length} Employees:`;
+						})();
 					},
 					getRandomNumberBetween(min, max) {
 						return (
