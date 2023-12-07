@@ -54,8 +54,18 @@
 									:src="`https://edwardtanguay.vercel.app/share/images/employees/employee_${employee.employeeID}.jpg`"
 								/>
 								<div class="w-full">
-									<p class="font-bold text-yellow-400">{{employee.firstName}} {{employee.lastName}}</p>
-									<p class="italic opacity-80">{{employee.title}}</p>
+									<p class="font-bold text-yellow-400">
+										{{employee.firstName}}
+										{{employee.lastName}}
+									</p>
+									<div v-if="employee.showNotes">
+										<p>notes</p>
+									</div>
+									<div v-if="!employee.showNotes">
+										<p class="italic opacity-80">
+											{{employee.title}}
+										</p>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -217,6 +227,9 @@
 								"https://edwardtanguay.vercel.app/share/employees.json"
 							);
 							this.employees = await response.json();
+							for (const employee of this.employees) {
+								employee.showNotes = false;
+							}
 							this.employeeTitle = `Our ${this.employees.length} Employees:`;
 						})();
 					},
