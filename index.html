@@ -58,10 +58,10 @@
 										{{employee.firstName}}
 										{{employee.lastName}}
 									</p>
-									<div v-if="employee.showNotes">
-										<p>notes</p>
+									<div v-if="employee.showContactInfo">
+										<p>{{employee.address.phone}}</p>
 									</div>
-									<div v-if="!employee.showNotes">
+									<div v-if="!employee.showContactInfo">
 										<p class="italic opacity-80">
 											{{employee.title}}
 										</p>
@@ -228,7 +228,7 @@
 							);
 							this.employees = await response.json();
 							for (const employee of this.employees) {
-								employee.showNotes = false;
+								employee.showContactInfo = false;
 							}
 							this.employeeTitle = `Our ${this.employees.length} Employees:`;
 						})();
