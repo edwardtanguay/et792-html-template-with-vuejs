@@ -44,7 +44,7 @@
 							><img src="images/pic01.jpg" alt=""
 						/></a>
 						<div class="content">
-							<h3>The First Thing</h3>
+							<h3>{{employeeTitle}}</h3>
 							<p>
 								Vitae natoque dictum etiam semper magnis enim
 								feugiat amet curabitur tempor orci penatibus.
@@ -195,11 +195,13 @@
 							"You are never too old to set another goal or to dream a new dream. - C.S. Lewis",
 							"The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt",
 						],
+						employeeTitle: ""
 					};
 				},
 				methods: {
 					initialize() {
 						this.quote = this.getRandomQuote();
+						this.employeeTitle = "Our nnn Employees:"
 					},
 					getRandomNumberBetween(min, max) {
 						return (
